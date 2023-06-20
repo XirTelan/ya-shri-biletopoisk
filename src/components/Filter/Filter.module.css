@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-shrink: 0;
+  width: 408px;
+  min-height: 862px;
+  flex-direction: column;
+  background-color: #fff;
+  margin: 24px 0 24px 32px;
+
+  height: 862px;
+  width: 408px;
+  left: 32px;
+  top: 108px;
+  border-radius: 8px;
+  padding: 24px;
+}

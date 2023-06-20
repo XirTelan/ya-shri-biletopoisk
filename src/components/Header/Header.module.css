@@ -1,0 +1,10 @@
+.header {
+  height: 84px;
+  left: 0px;
+  top: 0px;
+  border-radius: 0px;
+  padding: 24px 32px 24px 32px;
+  position: sticky;
+  color: #ffffff;
+  background-color: #333333;
+}

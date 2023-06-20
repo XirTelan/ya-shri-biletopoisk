@@ -1,0 +1,20 @@
+.card {
+  background-color: white;
+  height: 168px;
+  width: 1424px;
+  left: 0px;
+  top: 0px;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.description {
+  margin-left: 24px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.value {
+  margin: 0 8px;
+}
