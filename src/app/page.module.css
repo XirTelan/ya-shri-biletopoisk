@@ -1,7 +1,6 @@
 .main {
   flex: 1;
   display: flex;
-  overflow: auto;
 }
 
 .columns {
@@ -14,4 +13,10 @@
   flex-direction: column;
   gap: 16px;
   margin: 24px 0 24px 24px;
+}
+.filler {
+  width: 408px;
+  flex-shrink: 0;
+  margin: 24px 0 24px 32px;
+  height: 100%;
 }

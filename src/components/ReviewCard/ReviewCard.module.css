@@ -12,6 +12,7 @@
   margin-left: 24px;
   display: flex;
   width: 100%;
+  font-family: 'Custom Font', sans-serif;
   justify-content: space-between;
 }
 

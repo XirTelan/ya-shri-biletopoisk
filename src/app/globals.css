@@ -9,6 +9,16 @@
   letter-spacing: 0em;
   text-align: left; */
 }
+
+@font-face {
+  font-family: 'Custom Font';
+  src: url('/fonts/SFProText-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'sfpro-bold';
+  src: url('/fonts/SFProText-Bold.ttf') format('truetype');
+}
+
 button {
   border: none;
 }
@@ -27,6 +37,7 @@ a {
 }
 
 .flex {
+  font-family: 'Custom Font', sans-serif;
   display: flex;
 }
 
@@ -37,6 +48,17 @@ a {
   top: 0px;
   border-radius: 4px;
   padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   background: #ff5500;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
 }

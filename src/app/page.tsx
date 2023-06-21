@@ -8,6 +8,7 @@ export default function Home() {
     <>
       <div className={styles.columns}>
         <Filter />
+        <div className={styles.filler}></div>
         <div className={styles.reviews}>
           <ReviewCard />
           <ReviewCard />
