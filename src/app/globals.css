@@ -39,6 +39,7 @@ a {
 .flex {
   font-family: 'Custom Font', sans-serif;
   display: flex;
+  width: 100%;
 }
 
 .btn.btn-mini {
