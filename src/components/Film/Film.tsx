@@ -1,7 +1,9 @@
 import Image from 'next/image';
-import styles from './ReviewCard.module.css';
+import styles from './Film.module.css';
+import Link from 'next/link';
+import { FunctionComponent } from 'react';
 
-const ReviewCard = () => {
+const Film: FunctionComponent<Props> = ({ id }) => {
   return (
     <div className={styles.card}>
       <div className="flex">
@@ -13,7 +15,7 @@ const ReviewCard = () => {
         ></Image>
         <div className={styles.description}>
           <div>
-            <div>Title</div>
+            <Link href={`/films/${id}`}>Title</Link>
             <div>Genre</div>
           </div>
           <div className="flex">
@@ -52,4 +54,8 @@ const ReviewCard = () => {
     </div>
   );
 };
-export default ReviewCard;
+export default Film;
+
+interface Props {
+  id: string;
+}

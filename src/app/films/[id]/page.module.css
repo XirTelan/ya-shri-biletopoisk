@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin: 24px 32px 24px 32px;
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  padding: 24px;
+  background-color: #fff;
+  align-items: flex-start;
+}
+.card img {
+  border-radius: 8px;
+  background-repeat: no-repeat;
+}
+
+.description {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 32px;
+  gap: 16px;
+}
+
+.field {
+  font-weight: 700;
+}
+
+.field span {
+  margin-left: 8px;
+  font-weight: 400;
+}

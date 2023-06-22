@@ -36,11 +36,6 @@ a {
   text-decoration: none;
 }
 
-.flex {
-  font-family: 'Custom Font', sans-serif;
-  display: flex;
-}
-
 .btn.btn-mini {
   height: 20px;
   width: 20px;
@@ -61,4 +56,15 @@ a {
 
 .absolute {
   position: absolute;
+}
+
+/* Utils */
+
+.flex {
+  font-family: 'Custom Font', sans-serif;
+  display: flex;
+}
+
+.width-full {
+  width: 100%;
 }

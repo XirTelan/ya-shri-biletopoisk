@@ -1,12 +1,23 @@
-import { FunctionComponent } from 'react';
+'use client';
+
+import ReactDOM from 'react-dom';
 import styles from './Select.module.css';
+import { FunctionComponent, useEffect, useRef, useState } from 'react';
 
 const Select: FunctionComponent<Props> = ({ title, placeholder }) => {
+  const [isOpen, setIsOpnen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const rect = inputRef.current?.getBoundingClientRect();
+
   return (
-    <div>
+    <div ref={inputRef}>
       <div className={styles.title}>{title}</div>
-      <div className={styles.input}>
-        <input placeholder={placeholder}></input>
+
+      <button
+        onClick={() => setIsOpnen((prevVal) => !prevVal)}
+        className={styles.input}
+      >
+        <div className={styles.placeholder}>{placeholder}</div>
         <div className={styles.arrow}>
           <svg
             width="18"
@@ -23,11 +34,42 @@ const Select: FunctionComponent<Props> = ({ title, placeholder }) => {
             />
           </svg>
         </div>
-      </div>
+      </button>
+      {isOpen && <DropDown {...getPosition(rect)} />}
     </div>
   );
 };
 export default Select;
+
+const getPosition = (rect: DOMRect | undefined) => {
+  if (!rect) return {};
+  const top = rect.height + rect.top;
+  const left = rect.left;
+  const width = rect.width;
+  return { top, left, width };
+};
+
+const DropDown = ({ left, width, top }: Positions) => {
+  const modalContainer = document.getElementById('modal');
+  return ReactDOM.createPortal(
+    <div className={styles.dropdown} style={{ left, top, width }}>
+      <ul>
+        <li>Боевик</li>
+        <li>Боевик</li>
+        <li>Боевик</li>
+        <li>Боевик</li>
+        <li>Боевик</li>
+      </ul>
+    </div>,
+    modalContainer ? modalContainer : document.body
+  );
+};
+
+interface Positions {
+  top?: number;
+  width?: number;
+  left?: number;
+}
 
 interface Props {
   title: string;

@@ -1,7 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import styles from './page.module.css';
 import Filter from '@/components/Filter/Filter';
-import ReviewCard from '@/components/ReviewCard/ReviewCard';
+import Film from '@/components/Film/Film';
 
 export default function Home() {
   return (
@@ -10,15 +12,15 @@ export default function Home() {
         <Filter />
         <div className={styles.filler}></div>
         <div className={styles.reviews}>
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
+          <Film id={'asdasd'} />
+          <Film id={''} />
+          <Film id={''} />
+          <Film id={''} />
+          <Film id={''} />
+          <Film id={''} />
+          <Film id={''} />
+          <Film id={''} />
+          <Film id={''} />
         </div>
       </div>
     </>
