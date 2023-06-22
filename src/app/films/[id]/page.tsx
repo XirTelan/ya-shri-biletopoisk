@@ -1,9 +1,6 @@
-'use client';
-import { FunctionComponent } from 'react';
-import Image from 'next/image';
-import styles from './page.module.css';
-import Reviews from '@/components/Reviews/Reviews';
-const Film: FunctionComponent<Props> = ({ id, title }) => {
+import { FunctionComponent } from "react"
+
+const Film: FunctionComponent<Props> = (id) => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
@@ -46,6 +43,6 @@ const Film: FunctionComponent<Props> = ({ id, title }) => {
 export default Film;
 
 interface Props {
-  id: string;
-  title: string;
+    
 }
+
