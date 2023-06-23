@@ -7,12 +7,12 @@
   display: flex;
   width: 100%;
 }
-.reviews {
+.movies {
   display: flex;
   width: 100%;
   flex-direction: column;
   gap: 16px;
-  margin: 24px 0 24px 24px;
+  margin: 24px 23px 24px 23px;
 }
 .filler {
   width: 408px;

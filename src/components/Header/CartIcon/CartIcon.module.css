@@ -1,0 +1,30 @@
+.counter {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  font-family: Roboto;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 8px;
+  background: var(--orange, #f50);
+
+  margin: 8px 8px 8px 0;
+}
+.icon {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 2px 2.002px 5px 2px;
+  justify-content: center;
+  align-items: center;
+}
+.basket {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+}

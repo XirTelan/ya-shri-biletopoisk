@@ -1,9 +1,14 @@
+'use client';
+
 import Image from 'next/image';
-import styles from './Film.module.css';
+import styles from './Movie.module.css';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
+import useMovie from '@/hooks/useMovie';
 
-const Film: FunctionComponent<Props> = ({ id }) => {
+const Movie: FunctionComponent<Props> = ({ id }) => {
+  const { incrementValue, decrementValue, amount } = useMovie(id);
+
   return (
     <div className={styles.card}>
       <div className="flex">
@@ -19,12 +24,13 @@ const Film: FunctionComponent<Props> = ({ id }) => {
             <div>Genre</div>
           </div>
           <div className="flex">
-            <button className="btn btn-mini">
+            <button className="btn btn-mini" onClick={() => incrementValue()}>
               <svg
                 width="10"
                 height="2"
                 viewBox="0 0 10 2"
                 fill="none"
+                fillRule="inherit"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -33,13 +39,14 @@ const Film: FunctionComponent<Props> = ({ id }) => {
                 />
               </svg>
             </button>
-            <div className={styles.value}>0</div>
-            <button className="btn btn-mini">
+            <div className={styles.value}>{amount}</div>
+            <button className="btn btn-mini" onClick={() => decrementValue()}>
               <svg
                 width="10"
                 height="10"
                 viewBox="0 0 10 10"
                 fill="none"
+                fillRule="inherit"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -54,7 +61,7 @@ const Film: FunctionComponent<Props> = ({ id }) => {
     </div>
   );
 };
-export default Film;
+export default Movie;
 
 interface Props {
   id: string;

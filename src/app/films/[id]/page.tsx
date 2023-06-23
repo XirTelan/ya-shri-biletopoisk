@@ -1,6 +1,16 @@
-import { FunctionComponent } from "react"
+import { FunctionComponent } from 'react';
+import { Metadata, ResolvingMetadata } from 'next';
+import Image from 'next/image';
+import styles from './page.module.css';
+import Reviews from '@/components/Reviews/Reviews';
 
-const Film: FunctionComponent<Props> = (id) => {
+export async function generateMetadata({ title }: Props): Promise<Metadata> {
+  return {
+    title: title,
+  };
+}
+
+const Movie: FunctionComponent<Props> = ({ id, title }) => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
@@ -40,9 +50,9 @@ const Film: FunctionComponent<Props> = (id) => {
     </div>
   );
 };
-export default Film;
+export default Movie;
 
 interface Props {
-    
+  id: string;
+  title: string;
 }
-
