@@ -1,16 +1,23 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// Define a service using a base URL and expected endpoints
 export const moviesApi = createApi({
-  reducerPath: 'pokemonApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
+  reducerPath: 'movie',
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/api/' }),
   endpoints: (builder) => ({
-    getMovies: builder.query< string>({
-      query: (name) => `pokemon/${name}`,
+    getMovies: builder.query<any, void>({
+      query: () => `movies`,
+    }),
+    getMovieById: builder.query({
+      query: (movieId) => `movie?movieId=${movieId}`,
+    }),
+    getMoviesByCinema: builder.query({
+      query: (cinemaId) => `movies?cinemaId=${cinemaId}`,
     }),
   }),
-})
+});
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetPokemonByNameQuery } = pokemonApi
+export const {
+  useGetMoviesQuery,
+  useGetMovieByIdQuery,
+  useGetMoviesByCinemaQuery,
+} = moviesApi;

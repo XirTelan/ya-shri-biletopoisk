@@ -2,7 +2,6 @@
   display: flex;
   flex-shrink: 0;
   position: fixed;
-  width: 408px;
   flex-direction: column;
   background-color: #fff;
   margin: 0 0 0 32px;

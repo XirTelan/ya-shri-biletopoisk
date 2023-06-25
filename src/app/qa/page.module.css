@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 32px 0 32px;
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 24px;
+  color: var(--text-primary, #1b1f23);
+  font-size: 32px;
+  font-family: Roboto;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.qa {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

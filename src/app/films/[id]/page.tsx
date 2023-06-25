@@ -1,8 +1,13 @@
+'use client';
+
 import { FunctionComponent } from 'react';
 import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 import styles from './page.module.css';
 import Reviews from '@/components/Reviews/Reviews';
+import { useGetMovieByIdQuery } from '@/redux/services/moviesApi';
+import { useParams } from 'next/navigation';
+import { genresMap } from '@/data/genre';
 
 export async function generateMetadata({ title }: Props): Promise<Metadata> {
   return {
@@ -10,38 +15,41 @@ export async function generateMetadata({ title }: Props): Promise<Metadata> {
   };
 }
 
-const Movie: FunctionComponent<Props> = ({ id, title }) => {
+const Movie = () => {
+  const { id } = useParams();
+  const { data, isLoading, error } = useGetMovieByIdQuery(id);
+
+  if (isLoading) return <div>Loading</div>;
+  if (error) return <div>error</div>;
+
   return (
     <div className={styles.container}>
       <div className={styles.card}>
         <div className="flex width-full">
           <Image
-            src={'https://i.postimg.cc/FF8sXZgc/3.webp'}
+            src={data.posterUrl}
             alt={''}
             width={400}
             height={500}
             style={{ objectFit: 'cover' }}
           ></Image>
-          <div className={styles.description}>
-            <h2 className={styles.title}>{title}</h2>
+          <div className={styles.fields}>
+            <h2 className={styles.title}>{data.title}</h2>
             <div className={styles.field}>
-              Жанр:<span>Фэнтези</span>
+              Жанр:<span>{genresMap.get(data.genre)}</span>
             </div>
             <div className={styles.field}>
-              Год выпуска:<span>Фэнтези</span>
+              Год выпуска:<span>{data.releaseYear}</span>
             </div>
             <div className={styles.field}>
-              Рейтинг:<span>Фэнтези</span>
+              Рейтинг:<span>{data.rating}</span>
             </div>
             <div className={styles.field}>
-              Режиссер:<span>Фэнтези</span>
+              Режиссер:<span>{data.director}</span>
             </div>
             <div>
               <div className={styles.field}>Описание</div>
-              <div>
-                ;kjsad lfksdalkjfhsakdjf ksd gskdjlg lsjkhksjdh fksjhdf kjshdkj
-                shdgkjh sdkgjhsdkjhfk;hsadk;ghkfjghs k daf hkasjfhaklsjfh a
-              </div>
+              <div className={styles.description}>{data.description}</div>
             </div>
           </div>
         </div>

@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+  height: fit-content;
+  padding: 24px;
+  margin: 24px 33px 24px 32px;
+  background-color: var(--white);
+  border-radius: 8px;
+}
+
+.container h2 {
+  color: var(--text-primary);
+  font-size: 32px;
+  font-family: Roboto;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.container p {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: Roboto;
+  line-height: 24px;
+}

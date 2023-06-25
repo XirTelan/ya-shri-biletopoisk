@@ -4,8 +4,8 @@ import styles from './Footer.module.css';
 const Footer = () => {
   return (
     <div className={`${styles.footer}`}>
-      <Link href="/">Вопросы-ответы</Link>
-      <Link href="/">О нас</Link>
+      <Link href="/qa">Вопросы-ответы</Link>
+      <Link href="/about">О нас</Link>
     </div>
   );
 };

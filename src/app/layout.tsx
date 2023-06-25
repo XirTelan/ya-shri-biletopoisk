@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div id="modal"></div>
+        <div id="select"></div>
         <StoreProvider>
           <Header />
           <main className={styles.main}>{children}</main>

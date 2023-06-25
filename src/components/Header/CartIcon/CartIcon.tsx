@@ -1,4 +1,4 @@
-import useCartCounter from '@/hooks/useCartCounter';
+import useCartCounter from '@/hooks/useCartAmount';
 import Link from 'next/link';
 import styles from './CartIcon.module.css';
 
