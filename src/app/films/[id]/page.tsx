@@ -8,6 +8,9 @@ import Reviews from '@/components/Reviews/Reviews';
 import { useGetMovieByIdQuery } from '@/redux/services/moviesApi';
 import { useParams } from 'next/navigation';
 import { genresMap } from '@/data/genre';
+import Actions from '@/components/Movie/Actions/Actions';
+import { useSelector } from 'react-redux';
+import { Store } from '@/redux/store';
 
 export async function generateMetadata({ title }: Props): Promise<Metadata> {
   return {
@@ -17,6 +20,7 @@ export async function generateMetadata({ title }: Props): Promise<Metadata> {
 
 const Movie = () => {
   const { id } = useParams();
+  const cart = useSelector((state: Store) => state.cart);
   const { data, isLoading, error } = useGetMovieByIdQuery(id);
 
   if (isLoading) return <div>Loading</div>;
@@ -34,7 +38,10 @@ const Movie = () => {
             style={{ objectFit: 'cover' }}
           ></Image>
           <div className={styles.fields}>
-            <h2 className={styles.title}>{data.title}</h2>
+            <div className={styles.header}>
+              <h2 className={styles.title}>{data.title}</h2>
+              <Actions id={data.id} isCart={false} />
+            </div>
             <div className={styles.field}>
               Жанр:<span>{genresMap.get(data.genre)}</span>
             </div>
@@ -54,7 +61,7 @@ const Movie = () => {
           </div>
         </div>
       </div>
-      <Reviews />
+      <Reviews id={data.id} />
     </div>
   );
 };

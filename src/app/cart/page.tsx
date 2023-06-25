@@ -1,10 +1,9 @@
 'use client';
-import Movie from '@/components/Movie/Movie';
+import Movie, { MovieProps } from '@/components/Movie/Movie';
 import useCartContent from '@/hooks/useCartContent';
 import { FunctionComponent, useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { useGetMoviesQuery } from '@/redux/services/moviesApi';
-import { MovieProps } from '@/components/Movies/Movies';
 
 const Cart: FunctionComponent = () => {
   const moviesInCart = useCartContent();

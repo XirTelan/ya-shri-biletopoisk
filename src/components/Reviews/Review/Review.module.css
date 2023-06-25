@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  background: var(--white);
+  padding: 24px;
+  gap: 32px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 8px;
+  background: var(--gray-5);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.name {
+  color: var(--text-primary);
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: 600;
+  line-height: 32px;
+}
+.text {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: Roboto;
+  line-height: 24px;
+}
+.rating {
+  color: var(--text-primary);
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: 600;
+  line-height: 32px;
+}

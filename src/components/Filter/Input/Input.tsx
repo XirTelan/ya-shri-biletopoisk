@@ -1,6 +1,15 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import styles from './Input.module.css';
 const Input: FunctionComponent<Props> = ({ title, value, changeValue }) => {
+  const [query, setQuery] = useState('');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      changeValue(query);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [query]);
+
   return (
     <>
       <div>
@@ -8,8 +17,8 @@ const Input: FunctionComponent<Props> = ({ title, value, changeValue }) => {
         <input
           placeholder="Введите название"
           className={styles.input}
-          value={value}
-          onChange={(e) => changeValue(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         ></input>
       </div>
     </>

@@ -1,15 +1,20 @@
 import { ReactNode } from 'react';
 import styles from './Warning.module.css';
+import { icons } from '@/data/icons';
 
 const Warning = ({ action, disable }: Props): ReactNode => {
   return (
     <div className={styles.warning}>
-      <div className="flex">
-        <div>Удаление билета</div>
-        <button />
+      <div className={styles.header}>
+        <div className={styles.title}>Удаление билета</div>
+        <button className={styles.close} onClick={() => disable()}>
+          {icons.close}
+        </button>
       </div>
-      <div>Вы уверены что хотите удалить билет?</div>
-      <div>
+      <div className={styles.question}>
+        Вы уверены что хотите удалить билет?
+      </div>
+      <div className={styles.buttons}>
         <button
           className="btn btn-primary"
           onClick={(e) => {

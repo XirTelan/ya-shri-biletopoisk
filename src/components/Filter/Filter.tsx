@@ -19,11 +19,11 @@ const Filter = () => {
   const changeQuery = (str: string) => {
     dispatcher(setQuery(str));
   };
-  const changeGenre = (str: string) => {
+  const changeGenre = (str: { id: string; name: string }) => {
     dispatcher(setGenre(str));
   };
 
-  const changeCinema = (str: string) => {
+  const changeCinema = (str: { id: string; name: string }) => {
     dispatcher(setCinema(str));
   };
 
@@ -54,7 +54,7 @@ const Filter = () => {
             onChange={changeCinema}
             value={state.selectedCinema}
             placeholder={'Выберите кинотеатр'}
-            data={data}
+            data={[{ id: '', name: 'Не выбрано' }, ...data]}
           />
         </div>
       </div>

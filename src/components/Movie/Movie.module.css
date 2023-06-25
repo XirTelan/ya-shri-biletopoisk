@@ -1,9 +1,6 @@
 .card {
   background-color: var(--white);
   display: flex;
-  height: 168px;
-  left: 0px;
-  top: 0px;
   border-radius: 8px;
   padding: 24px;
 }
@@ -35,8 +32,4 @@
 .poster {
   border-radius: 8px;
   background: lightgray 50% / cover no-repeat;
-}
-
-.value {
-  margin: 0 8px;
 }

@@ -1,6 +1,7 @@
 export const genresMap = new Map([
-  ['fantasy', 'Фэнтэзи'],
-  ['horror', 'Ужасы'],
+  ['', 'Не выбрано'],
   ['action', 'Боевик'],
   ['comedy', 'Комедия'],
+  ['fantasy', 'Фэнтэзи'],
+  ['horror', 'Ужасы'],
 ]);

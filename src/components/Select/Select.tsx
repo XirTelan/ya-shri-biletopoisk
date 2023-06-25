@@ -27,8 +27,19 @@ const Select: FunctionComponent<Props> = ({
         onClick={() => setIsOpnen((prevVal) => !prevVal)}
         className={styles.input}
       >
-        <div className={styles.placeholder}>{value ? value : placeholder}</div>
-        <div className={styles.arrow}>{icons.arrow}</div>
+        <div
+          className={styles.placeholder}
+          style={{ color: value.id !== '' ? '#000' : '' }}
+        >
+          {value.id ? value.name : placeholder}
+        </div>
+
+        <div
+          className={styles.arrow}
+          style={isOpen ? { rotate: '180deg' } : {}}
+        >
+          {icons.arrow}
+        </div>
       </button>
       {isOpen && (
         <DropDown
@@ -60,7 +71,7 @@ const DropDown = ({ data, pos, onChange, close }: DropDownProps) => {
         {data.map((cinema) => (
           <li
             onClick={() => {
-              onChange(cinema.id);
+              onChange(cinema);
               close();
             }}
             key={cinema.id}
@@ -77,7 +88,7 @@ const DropDown = ({ data, pos, onChange, close }: DropDownProps) => {
 interface DropDownProps {
   data: Cinema[];
   pos: Positions;
-  onChange: (obj: string) => void;
+  onChange: (obj: Cinema) => void;
   close: () => void;
 }
 interface Positions {
@@ -88,9 +99,9 @@ interface Positions {
 
 interface Props {
   title: string;
-  onChange: (obj: string) => void;
+  onChange: (obj: Cinema) => void;
   placeholder: string;
-  value: string;
+  value: Cinema;
   data: Cinema[];
 }
 interface Cinema {

@@ -5,7 +5,10 @@
   width: 100%;
   margin: 24px 32px 24px 32px;
 }
-
+.header {
+  display: flex;
+  justify-content: space-between;
+}
 .card {
   display: flex;
   padding: 24px;
