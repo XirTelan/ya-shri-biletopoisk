@@ -2,16 +2,10 @@
 
 import ReactDOM from 'react-dom';
 import styles from './Select.module.css';
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { icons } from '@/data/icons';
 
-const Select: FunctionComponent<Props> = ({
-  title,
-  placeholder,
-  value,
-  data,
-  onChange,
-}) => {
+const Select = ({ title, placeholder, value, data, onChange }: Props) => {
   const [isOpen, setIsOpnen] = useState(false);
   const switchDropDown = () => {
     setIsOpnen((prev) => !prev);
@@ -26,6 +20,7 @@ const Select: FunctionComponent<Props> = ({
       <button
         onClick={() => setIsOpnen((prevVal) => !prevVal)}
         className={styles.input}
+        style={{ borderColor: isOpen ? 'var(--orange)' : '' }}
       >
         <div
           className={styles.placeholder}
@@ -63,14 +58,28 @@ const getPosition = (rect: DOMRect | undefined) => {
 };
 
 const DropDown = ({ data, pos, onChange, close }: DropDownProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: any) {
+      if (ref.current && !ref.current.contains(e.target)) {
+        close();
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref]);
+
   const { left, top, width } = pos;
   const modalContainer = document.getElementById('select');
   return ReactDOM.createPortal(
-    <div className={styles.dropdown} style={{ left, top, width }}>
+    <div ref={ref} className={styles.dropdown} style={{ left, top, width }}>
       <ul>
         {data.map((cinema) => (
           <li
-            onClick={() => {
+            onClick={(e) => {
               onChange(cinema);
               close();
             }}

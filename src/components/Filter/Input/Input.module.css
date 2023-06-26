@@ -1,7 +1,7 @@
 /* input */
 .input {
   box-sizing: border-box;
-
+  border: 1px solid var(--white);
   /* Auto layout */
   display: flex;
   flex-direction: row;
@@ -31,6 +31,12 @@
   font-size: 14px;
   line-height: 20px;
   /* identical to box height, or 143% */
+}
+
+.input:focus,
+.input:focus-visible {
+  border: 1px solid var(--orange);
+  outline: none;
 }
 
 .title {
