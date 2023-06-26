@@ -6,3 +6,13 @@
   margin: 24px 33px 24px 32px;
 }
 
+.empty {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  color: #999fa6;
+  font-weight: 600;
+  font-size: 32px;
+}

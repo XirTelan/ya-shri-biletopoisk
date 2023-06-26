@@ -17,7 +17,8 @@ const Cart: FunctionComponent = () => {
   }, [data, moviesInCart, isLoading]);
 
   if (error) return <div>Error</div>;
-  if (moviesInCart.length === 0) return <div>Корзина пуста</div>;
+  if (moviesInCart.length === 0)
+    return <div className={styles.empty}>Корзина пуста</div>;
   console.log(movies);
   return (
     <>
