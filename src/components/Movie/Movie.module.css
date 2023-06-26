@@ -29,6 +29,11 @@
   font-family: 'Custom Font', sans-serif;
   justify-content: space-between;
 }
+
+.posterBlock {
+  height: 120px;
+  width: 100;
+}
 .poster {
   border-radius: 8px;
   background: lightgray 50% / cover no-repeat;

@@ -7,6 +7,7 @@ import { Store } from '@/redux/store';
 import { filterActions } from '@/redux/features/filterSlice';
 import { useGetCinemasQuery } from '@/redux/services/cinemaApi';
 import { genresMap } from '@/data/genre';
+import Loader from '../Loader/Loader';
 
 const Filter = () => {
   const state = useSelector((state: Store) => state.filter);
@@ -27,7 +28,12 @@ const Filter = () => {
     dispatcher(setCinema(str));
   };
 
-  if (isLoading) return <div>IsLoading</div>;
+  if (isLoading)
+    return (
+      <div className={styles.container}>
+        <Loader />
+      </div>
+    );
 
   return (
     <>

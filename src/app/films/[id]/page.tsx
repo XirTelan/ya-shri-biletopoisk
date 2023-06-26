@@ -1,7 +1,5 @@
 'use client';
 
-import { FunctionComponent } from 'react';
-import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 import styles from './page.module.css';
 import Reviews from '@/components/Reviews/Reviews';
@@ -9,18 +7,9 @@ import { useGetMovieByIdQuery } from '@/redux/services/moviesApi';
 import { useParams } from 'next/navigation';
 import { genresMap } from '@/data/genre';
 import Actions from '@/components/Movie/Actions/Actions';
-import { useSelector } from 'react-redux';
-import { Store } from '@/redux/store';
-
-export async function generateMetadata({ title }: Props): Promise<Metadata> {
-  return {
-    title: title,
-  };
-}
 
 const Movie = () => {
   const { id } = useParams();
-  const cart = useSelector((state: Store) => state.cart);
   const { data, isLoading, error } = useGetMovieByIdQuery(id);
 
   if (isLoading) return <div>Loading</div>;

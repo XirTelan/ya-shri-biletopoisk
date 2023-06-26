@@ -19,13 +19,16 @@ const Movie: FunctionComponent<Props> = ({ movie, isCart = false }) => {
 
   return (
     <div className={styles.card}>
-      <Image
-        className={styles.poster}
-        src={movie.posterUrl}
-        width={100}
-        height={120}
-        alt={''}
-      ></Image>
+      <div className={styles.posterBlock}>
+        <Image
+          className={styles.poster}
+          src={movie.posterUrl}
+          width={100}
+          height={120}
+          alt={''}
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </div>
       <div className={styles.description}>
         <div className="flex-grow">
           <Link href={`/films/${movie.id}`}>

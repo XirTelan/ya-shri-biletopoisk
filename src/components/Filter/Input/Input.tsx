@@ -1,8 +1,8 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import styles from './Input.module.css';
 const Input: FunctionComponent<Props> = ({ title, value, changeValue }) => {
-  const [query, setQuery] = useState('');
-
+  const [query, setQuery] = useState(value);
+  //debounce
   useEffect(() => {
     const timer = setTimeout(() => {
       changeValue(query);

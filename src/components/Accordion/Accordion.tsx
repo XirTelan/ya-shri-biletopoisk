@@ -32,8 +32,10 @@ Accordion.Question = function MenuGroup({
           <p className={styles.question}>{title}</p>
           {active === id && <div className={styles.answers}>{children}</div>}
         </div>
-        <div style={active === id ? { rotate: '180deg' } : {}}>
-          {icons.arrow}
+        <div>
+          <div style={active === id ? { rotate: '180deg' } : {}}>
+            {icons.arrow}
+          </div>
         </div>
       </button>
     </>
