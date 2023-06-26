@@ -17,7 +17,7 @@ const Actions = ({ id, isCart, changeState }: Props) => {
       >
         <svg
           width="10"
-          height="2"
+          height="100%"
           viewBox="0 0 10 2"
           fill="none"
           fillRule="inherit"
@@ -37,7 +37,7 @@ const Actions = ({ id, isCart, changeState }: Props) => {
       >
         <svg
           width="10"
-          height="10"
+          height="100%"
           viewBox="0 0 10 10"
           fill="none"
           fillRule="inherit"

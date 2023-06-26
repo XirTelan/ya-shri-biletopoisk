@@ -16,9 +16,12 @@ export default function Home() {
         <Filter />
         <div className={styles.filler}></div>
         <div className={styles.movies}>
-          {movies.length === 0 && isLoading && <Loader />}
-          {movies.length === 0 && !isLoading && <div>Фильмы не найдены</div>}
-          {movies.length > 0 &&
+          {movies && movies.length === 0 && isLoading && <Loader />}
+          {movies && movies.length === 0 && !isLoading && (
+            <div>Фильмы не найдены</div>
+          )}
+          {movies &&
+            movies.length > 0 &&
             movies.map((movie: MovieProps) => {
               return <Movie key={movie.id} movie={movie} />;
             })}

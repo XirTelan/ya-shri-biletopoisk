@@ -6,6 +6,9 @@
 }
 
 .title {
+  padding: 24px;
+  background-color: var(--white);
+  border-radius: 8px;
   margin-bottom: 24px;
   color: var(--text-primary, #1b1f23);
   font-size: 32px;

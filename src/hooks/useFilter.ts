@@ -1,43 +1,33 @@
 import { MovieProps } from '@/components/Movie/Movie';
+import {
+  useGetMoviesByCinemaQuery,
+  useGetMoviesQuery,
+} from '@/redux/services/moviesApi';
 import { Store } from '@/redux/store';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const useFilter = () => {
   const filter = useSelector((state: Store) => state.filter);
+  const { data, isLoading } = useGetMoviesByCinemaQuery(
+    filter.selectedCinema.id
+  );
   const [movies, setMovies] = useState<MovieProps[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setMovies([]);
-    let moviesList: MovieProps[] = [];
-    let query;
-    const loadData = async (query: string) => {
-      setIsLoading(true);
-      const data = await fetch(query);
-      moviesList = await data.json();
-      if (moviesList.length === 0) return;
-      if (filter.query !== '') {
-        moviesList = moviesList.filter((movie: MovieProps) =>
-          movie.title.includes(filter.query)
-        );
-      }
-      if (filter.selectedGenre.id !== '') {
-        moviesList = moviesList.filter(
-          (movie: MovieProps) => movie.genre === filter.selectedGenre.id
-        );
-      }
-      setIsLoading(false);
-      setMovies(moviesList);
-    };
-
-    if (filter.selectedCinema.id !== '') {
-      query = `http://localhost:3001/api/movies?cinemaId=${filter.selectedCinema.id}`;
-    } else {
-      query = `http://localhost:3001/api/movies`;
+    let moviesList = data;
+    if (filter.query !== '') {
+      moviesList = moviesList.filter((movie: MovieProps) =>
+        movie.title.includes(filter.query)
+      );
     }
-    loadData(query);
-  }, [filter]);
+    if (filter.selectedGenre.id !== '') {
+      moviesList = moviesList.filter(
+        (movie: MovieProps) => movie.genre === filter.selectedGenre.id
+      );
+    }
+    setMovies(moviesList);
+  }, [filter, data]);
 
   return { movies, isLoading };
 };

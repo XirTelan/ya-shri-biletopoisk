@@ -8,7 +8,6 @@ const useCartContent = () => {
   useEffect(() => {
     const arr: string[] = [];
     for (const obj in cart) {
-      console.log(obj);
       arr.push(obj);
     }
     setMovies(arr);

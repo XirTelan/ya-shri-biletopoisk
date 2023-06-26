@@ -26,7 +26,7 @@ const Movie: FunctionComponent<Props> = ({ movie, isCart = false }) => {
           width={100}
           height={120}
           alt={''}
-          style={{ width: '100%', height: 'auto' }}
+          style={{ objectFit: 'cover' }}
         />
       </div>
       <div className={styles.description}>

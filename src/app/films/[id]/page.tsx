@@ -7,13 +7,15 @@ import { useGetMovieByIdQuery } from '@/redux/services/moviesApi';
 import { useParams } from 'next/navigation';
 import { genresMap } from '@/data/genre';
 import Actions from '@/components/Movie/Actions/Actions';
+import Loader from '@/components/Loader/Loader';
 
 const Movie = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useGetMovieByIdQuery(id);
 
-  if (isLoading) return <div>Loading</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>error</div>;
+
 
   return (
     <div className={styles.container}>
