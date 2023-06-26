@@ -1,0 +1,46 @@
+.spinner {
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid var(--orange);
+  border-top: 1px solid #333;
+  border-left: transparent;
+  border-bottom: transparent;
+  border-radius: 100%;
+  animation: spin;
+  animation-iteration-count: infinite;
+  animation-duration: 1000ms;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(-360deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(-360deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
